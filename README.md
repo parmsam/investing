@@ -5,4 +5,4 @@ Built in R using lessons from
 
 Thanks to [RitvikMath](https://www.youtube.com/channel/UCUcpVoi5KkJmnE3bvEhHR0Q)!
 
-Shiny app [here](https://parmsam.shinyapps.io/simple_stock_picker/)
+R Shiny app [here](https://parmsam.shinyapps.io/simple_stock_picker/)
