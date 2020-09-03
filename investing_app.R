@@ -36,8 +36,9 @@ ui <- fluidPage(theme = shinytheme("lumen"),
                     # Select whether to overlay smooth trend line
                     checkboxInput(inputId = "smoother", label = strong("Display stock picks"), value = FALSE),
                                      HTML("Wait 2-3 minutes after click for stock picks"),
+                    br(),
                        HTML("Note: min average return is 10% and max deviation is 7% for stock picks in bottom table"),
-                                     br(),br(),
+                                     br()
                
                   # sliderInput(inputId = "minavgreturn", label = strong("Min Average Return"),
                   #             min = 0, max = 1, value = 0.1, step = 0.05,
