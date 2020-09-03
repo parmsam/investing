@@ -21,7 +21,7 @@ days = 20
 #4 weeks after buy date (20 days)
 #note many stock exchanges not open on weekends
 
-series_ticker <- read.csv("https://raw.githubusercontent.com/parmsam/investing/master/series_tickers.csv")
+series_ticker <- read.csv("series_tickers.csv")
 
 getStockdata <- function(ticker, weeks=number_weeks, end_date=end_date0, start_date=start_date0) {
   #get stock price data

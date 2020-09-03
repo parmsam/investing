@@ -5,7 +5,7 @@ library(dplyr)
 library(readr)
 library(DT)
 
-source("https://raw.githubusercontent.com/parmsam/investing/master/investing_build.R")
+source("investing_build.R")
 
 
 # Define UI
@@ -55,8 +55,10 @@ ui <- fluidPage(theme = shinytheme("lumen"),
                   mainPanel(
                     plotOutput(outputId = "lineplot", height = "500px"),
                     textOutput(outputId = "desc"),
-                    tags$a(href = "https://finance.yahoo.com/", "Source: Yahoo Finance", target = "_blank"),
-                    
+                    tags$a(href = "https://finance.yahoo.com/", "Source: Yahoo Finance", target = "_blank"), br(),
+                    tags$a(href = "https://github.com/parmsam/simple-stock-picker/", "Github Repo", target = "_blank"),
+                    br(),
+                    strong("Special thanks to RitvikMath for his How I Pick Stocks video"),
                     conditionalPanel(condition = "input.smoother == true",
                                      DT::dataTableOutput("mytable"))
                   )
