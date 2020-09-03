@@ -20,7 +20,7 @@ ui <- fluidPage(theme = shinytheme("lumen"),
                                 selected = "YNDX"),
                     
                     # Select date range to be plotted
-                    dateRangeInput("date", strong("Buy and Sell date range"), start = "2020-04-01", end = today(),
+                    dateRangeInput("date", strong("Date range"), start = "2020-04-01", end = today(),
                                    min = "2019-01-01", max = today()),
                     
 
