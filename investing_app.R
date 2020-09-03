@@ -20,8 +20,8 @@ ui <- fluidPage(theme = shinytheme("lumen"),
                                 selected = "YNDX"),
                     
                     # Select date range to be plotted
-                    dateRangeInput("date", strong("Date range"), start = "2020-04-01", end = today(),
-                                   min = "2019-01-01", max = today()),
+                    dateRangeInput("date", strong("Date range"), start = "2020-04-01", end = today()-days(1),
+                                   min = "2019-01-01", max = today()-days(1)),
                     
 
                     
@@ -35,9 +35,9 @@ ui <- fluidPage(theme = shinytheme("lumen"),
                                   
                     # Select whether to overlay smooth trend line
                     checkboxInput(inputId = "smoother", label = strong("Display stock picks"), value = FALSE),
+                                     HTML("Wait 2-3 minutes after click for stock picks"),
                        HTML("Note: min average return is 10% and max deviation is 7% for stock picks in bottom table"),
                                      br(),br(),
-                                     HTML("Wait 2-3 minutes after click for stock picks"),
                
                   # sliderInput(inputId = "minavgreturn", label = strong("Min Average Return"),
                   #             min = 0, max = 1, value = 0.1, step = 0.05,
@@ -94,8 +94,10 @@ server <- function(input, output) {
   })
   
   output$mytable = DT::renderDataTable({
-    if(input$smoother){return(series_ticker$ticker %>% map_df(criteriaCheck,weeks=input$weekcount, 
-                                    start_date=input$date[1], end_date=input$date[2]))}
+    if(input$smoother){
+      suppressWarnings(stock_metric_df<-series_ticker$ticker %>% map_df(criteriaCheck,weeks=input$weekcount, 
+                                                       start_date=input$date[1], end_date=input$date[2]))
+      return(stock_metric_df)}
   })
 }
 

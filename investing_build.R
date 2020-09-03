@@ -13,7 +13,7 @@ sdp <- function(x) sqrt(mean((x-mean(x))^2))
 
 #declare default parameters
 start_date0 = "2020-04-01"
-end_date0 = today()+1
+end_date0 = today()-1
 number_weeks = 4
 min_avg_return = 0.1
 max_dev_return = 0.07
@@ -25,6 +25,7 @@ series_ticker <- read.csv("series_tickers.csv")
 
 getStockdata <- function(ticker, weeks=number_weeks, end_date=end_date0, start_date=start_date0) {
   #get stock price data
+  
   stock_data <- getSymbols(ticker, src = "yahoo", from = start_date, 
                     to = end_date, auto.assign = FALSE) %>% 
     data.frame() %>%
@@ -100,14 +101,19 @@ buildReturnGraph <- function(stock_return_data, ticker="", desc=""){
 # criteriaCheck("YNDX")
 # criteriaCheck("VG")
 # 
-# criteriaCheck("VIAC")
-# getSummaryMetrics(getStockdata("VIAC"))
 # getStockdata("VIAC")
+# getSummaryMetrics(getStockdata("VIAC"))
+# criteriaCheck("VIAC")
+# 
+# getStockdata("HCAC")
+# getSummaryMetrics(getStockdata("HCAC"))
+# criteriaCheck("HCAC")
 # 
 # getSummaryMetrics(getStockdata("DCT"))
 # criteriaCheck("DCT")
 
-#run functions on dataset and get relevant metrics:
+  #run functions on dataset and get relevant metrics:
 
 # stock_metric_df <- series_ticker$ticker %>% map_df(criteriaCheck)
 # stock_metric_df
+# stock_metric_df <- series_ticker$ticker %>% map_df(criteriaCheck)
