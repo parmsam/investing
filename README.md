@@ -1,4 +1,4 @@
-# investing
+# simple stock picker
 
 Built in R using lessons from
 [ritvikmath's How I Pick Stocks video](https://www.youtube.com/watch?v=IPwDxoomxuA) and his [python code](https://github.com/ritvikmath/Time-Series-Analysis/blob/master/Investing.ipynb)
